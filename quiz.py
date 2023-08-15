@@ -13,7 +13,7 @@ quiz = {
     "2x + 8 = 18": ["5", "6", "7", "4"],
 }
 
-subjects = "Math, Not currently supported: Digital Technology, Biology, Chemistry, Physics, Statistics, Physical Education, Health and Economics!"
+subjects = "Math. Not currently supported: Digital Technology, Biology, Chemistry, Physics, Statistics, Physical Education, Health and Economics!"
 
 
 score = 0
@@ -24,10 +24,13 @@ yearlvl = input(f"Thanks {name}, please enter your year level: ")
 
 while yearlvl.isdigit():
     if yearlvl == "11":
-        print("Welcome to the Y11 Quiz Central;")
+        print("Welcome to the Y11 Quiz Central!")
         print(f"Here is a list of all the Year 11 subjects: {subjects}" )
         studysubject = input("What subject would you like to study?: ")
-        if studysubject == "Math":
+        while studysubject != "Math":
+            print("Please choose an available subject!")  
+            studysubject = input("What subject would you like to study?: ")
+        else: 
             for question, answer in quiz.items():
                 correct_answer = answer[0]
                 random.shuffle(answer)
@@ -42,7 +45,8 @@ while yearlvl.isdigit():
                 else:
                     print(f"Incorrect! The answer was {correct_answer} not {user_input}!")
 
-        print(f"Your final score is: {score}/{len(quiz)}")  
+            print(f"Your final score is: {score}/{len(quiz)}") 
+           
     else:
         print("Sorry but Quiz Central is not currently supported in your region, please make a request to our offices in Mumbai for support in your year level!")
 else:
