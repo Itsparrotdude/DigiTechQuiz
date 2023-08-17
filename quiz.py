@@ -22,26 +22,39 @@ mathquiztitles = ["Math Quiz #1 (Easy)",
                   ]
 
 
-subjects = "Math. Not currently supported: Digital Technology, Biology, Chemistry, Physics, Statistics, Physical Education, Health and Economics!"
+subjects = [
+    "Math",
+    "Not currently supported:",
+    "Digital Technology", 
+    "Biology, Chemistry", 
+    "Physics, Statistics", 
+    "Physical Education", 
+    "Health",
+    "Economics!"
+]
 
 
 score = 0
 
 print("Welcome to Quiz Central!")
 name = input("Please enter you name: ")
-yearlvl = input(f"Thanks {name}, please enter your year level: ")
 
 
 
 
-while yearlvl.isdigit():
+
+# while yearlvl.isdigit():
+while True:
+    yearlvl = input(f"Thanks {name}, please enter your year level: ")
+    if yearlvl.isdigit():
         if yearlvl == "11":
             print("Welcome to the Y11 Quiz Central!")
-            print(f"Here is a list of all the Year 11 subjects: {subjects}" )
-            
+            print(f"Here is a list of all the Year 11 subjects:")
+            for avalaiblesubjectsy11, subjectnamey11 in enumerate(subjects, start = 1):
+                print(f"{avalaiblesubjectsy11}) {subjectnamey11}")
             while True:
                 studysubject = input("What subject would you like to study?: ")
-                if studysubject == "Math":
+                if studysubject == "Math" or "1":
                     print("Welcome to the Quiz Centrals Math hub!")
                     print("Here is a list of all the avaiable Year 11 Math quizzes:")
                     for avalaiblemathy11quiz, quiznamemathy11 in enumerate(mathquiztitles, start = 1):
@@ -66,7 +79,6 @@ while yearlvl.isdigit():
 
                     else: 
                         print("Please select a proper Math Quiz!")
-                    break
                 else: 
                     print("Please choose an available subject!")  
                     studysubject = input("What subject would you like to study?: ")
@@ -76,6 +88,6 @@ while yearlvl.isdigit():
         else:
             print(f"Sorry but Quiz Central is not currently supported for Y{yearlvl}, please make a request to our offices in Mumbai for support in your year level!")
     
-else:
-    yearlvl = print("Please enter an integer in between 0-13!: ")
+    else:
+        yearlvl = print("Please enter an integer in between 0-13!: ")
         
