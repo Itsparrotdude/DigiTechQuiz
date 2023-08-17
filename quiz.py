@@ -13,13 +13,14 @@ mathquiz1y11 = {
     "2x + 8 = 18": ["5", "6", "7", "4"],
 }
 
-mathquiztitles = ["Math Quiz #1 (Easy)",
-                  "Math Quiz #2 (Easy)",
-                  "Math Quiz #3 (Easy)",
-                  "Math Quiz #4 (Easy)",
-                  "Math Quiz #5 (Easy)",
-                  "Math Quiz #6 (Easy)"
-                  ]
+mathquiztitles = [
+    "Math Quiz #1 (Easy)",
+    "Math Quiz #2 (Easy)",
+    "Math Quiz #3 (Easy)",
+    "Math Quiz #4 (Easy)",
+    "Math Quiz #5 (Easy)",
+    "Math Quiz #6 (Easy)"
+]
 
 
 subjects = [
@@ -39,11 +40,6 @@ score = 0
 print("Welcome to Quiz Central!")
 name = input("Please enter you name: ")
 
-
-
-
-
-# while yearlvl.isdigit():
 while True:
     yearlvl = input(f"Thanks {name}, please enter your year level: ")
     if yearlvl.isdigit():
