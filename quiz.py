@@ -1,5 +1,9 @@
 import random
 
+# JUMBODICT = {
+#     "Math": ["Math Quiz #1 (Easy)": {"x + 2 = 5": ["3", "2", "4", "5"]} ]
+# }
+
 mathquiz1y11 = {
     "x + 2 = 5": [ "3", "2", "4", "5"],
     "5x = 10": [ "2", "15", "50", "0.5" ],
@@ -55,26 +59,29 @@ while True:
                     print("Here is a list of all the avaiable Year 11 Math quizzes:")
                     for avalaiblemathy11quiz, quiznamemathy11 in enumerate(mathquiztitles, start = 1):
                         print(f"{avalaiblemathy11quiz}) {quiznamemathy11}")
-                    mathquizuserchoice = "Please select the quiz you would like to take?"
-                    if mathquizuserchoice == "1":
+                    while True:
+                        mathquizuserchoice = input("Please select the quiz you would like to take? ")
+                        if mathquizuserchoice == "1":
+                            for question, answer in mathquiz1y11.items():
+                                correct_answer = answer[0]
+                                random.shuffle(answer)
+                                
+                                print(f"Question: {question}")
+                                for answernum, option in enumerate(answer, start=1):
+                                    print(f"{answernum}) {option}")
+                                answer_label = int(input("Your answer: "))                                   
+                                user_input = (answer[answer_label - 1])
+                        
+                                if user_input == correct_answer:
+                                    print("Correct")
+                                    score += 1
+                                else:
+                                    print(f"Incorrect! The answer was {correct_answer} not {user_input}!")
 
-                        for question, answer in mathquiz1y11.items():
-                            correct_answer = answer[0]
-                            random.shuffle(answer)
-                            for answernum, option in enumerate(answer, start=1):
-                                print(f"{answernum}) {option}")
-                            answer_label = int(input("Your answer: "))
-                            user_input = (answer[answer_label - 1])
-                            if user_input == correct_answer:
-                                print("Correct")
-                                score += 1
-                            else:
-                                print(f"Incorrect! The answer was {correct_answer} not {user_input}!")
+                            print(f"Your final score is: {score}/{len(mathquiz1y11)}") 
 
-                        print(f"Your final score is: {score}/{len(mathquiz1y11)}") 
-
-                    else: 
-                        print("Please select a proper Math Quiz!")
+                        else: 
+                            print("Please select a proper Math Quiz!")
                 else: 
                     print("Please choose an available subject!")  
                     studysubject = input("What subject would you like to study?: ")
